@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listPeliculas" rowHeight="116" id="k2l-is-JIS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listPeliculas" rowHeight="116" id="k2l-is-JIS" customClass="tableViewCell" customModule="Practica_UF1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k2l-is-JIS" id="r3D-Jg-35t">
@@ -31,8 +31,8 @@
                                                 <constraint firstAttribute="width" constant="102" id="gy1-mq-nV9"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLy-6f-QCg">
-                                            <rect key="frame" x="131" y="8" width="55.5" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLy-6f-QCg">
+                                            <rect key="frame" x="131" y="8" width="236" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                         <constraint firstItem="OLy-6f-QCg" firstAttribute="leading" secondItem="VWf-4Y-lez" secondAttribute="trailing" constant="21" id="Lph-Ng-ddv"/>
                                         <constraint firstAttribute="trailing" secondItem="NVO-SD-XkI" secondAttribute="trailing" constant="16" id="b7C-Os-M47"/>
                                         <constraint firstItem="NVO-SD-XkI" firstAttribute="leading" secondItem="VWf-4Y-lez" secondAttribute="trailing" constant="21" id="cDN-HD-vif"/>
-                                        <constraint firstAttribute="trailing" secondItem="OLy-6f-QCg" secondAttribute="trailing" constant="188.5" id="cuS-ae-l7q"/>
+                                        <constraint firstAttribute="trailing" secondItem="OLy-6f-QCg" secondAttribute="trailing" constant="8" id="cuS-ae-l7q"/>
                                         <constraint firstAttribute="bottom" secondItem="VWf-4Y-lez" secondAttribute="bottom" constant="8" id="jif-0b-rFD"/>
                                         <constraint firstItem="NVO-SD-XkI" firstAttribute="top" secondItem="OLy-6f-QCg" secondAttribute="bottom" priority="250" constant="32" id="soZ-wy-otF"/>
                                         <constraint firstItem="OLy-6f-QCg" firstAttribute="top" secondItem="r3D-Jg-35t" secondAttribute="top" constant="8" id="ycr-dB-evz"/>
@@ -61,9 +61,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="horariosPelicula" destination="NVO-SD-XkI" id="pnE-Sq-fLm"/>
-                                    <outlet property="imagePelicula" destination="VWf-4Y-lez" id="zlQ-m8-jyE"/>
-                                    <outlet property="titlePelicula" destination="OLy-6f-QCg" id="P0J-Cq-ThH"/>
+                                    <outlet property="horariosPelicula" destination="NVO-SD-XkI" id="5Ez-UB-xQT"/>
+                                    <outlet property="imagePelicula" destination="VWf-4Y-lez" id="hrC-Fq-aHm"/>
+                                    <outlet property="titlePelicula" destination="OLy-6f-QCg" id="ugD-XO-7kP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

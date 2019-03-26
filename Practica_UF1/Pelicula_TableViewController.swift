@@ -8,15 +8,27 @@
 
 import UIKit
 
+struct Pelicula {
+    var image:String
+    var title:String
+    var horario:String
+    
+}
+
+class tableViewCell: UITableViewCell{
+    
+    @IBOutlet weak var imagePelicula: UIImageView!
+    @IBOutlet weak var horariosPelicula: UILabel!
+    @IBOutlet weak var titlePelicula: UILabel!
+    
+}
+
+
 class Pelicula_TableViewController: UITableViewController {
     
-    var peliculas:[String] = ["1","2","3"]
+    var peliculas:[Pelicula] = [Pelicula(image: "", title: "Pelicula 1", horario:"12:00 | 15:30"), Pelicula(image: "", title: "Pelicula 2", horario:"12:30 | 16:00 | 19:00")]
     
-    class MyTable: UITableViewCell{
-        @IBOutlet var imagePelicula: UIImageView!
-        @IBOutlet var titlePelicula: UILabel!
-        @IBOutlet var horariosPelicula: UILabel!        
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +55,22 @@ class Pelicula_TableViewController: UITableViewController {
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listPeliculas", for: indexPath)
-
-        let item:String = peliculas[indexPath.row]
         
-        if let myTableCell = cell as? MyTable{
-            
-            myTableCell.titlePelicula.text = item
-            myTableCell.horariosPelicula.text = "12:30 | 13:30"
+        as! tableViewCell
+        let pelicula = peliculas[indexPath.row]
+      
+        //cell.imagePelicula?.image = pelicula.image
+        if let titleText = cell.titlePelicula {
+            titleText.text = pelicula.title
         }
         
+        if let horarioText = cell.horariosPelicula {
+            horarioText.text = pelicula.horario
+        }
         return cell
     }
 
 }
 
-
+//https://www.ralfebert.de/ios-examples/uikit/uitableviewcontroller/custom-cells/
+//custom cells shit
