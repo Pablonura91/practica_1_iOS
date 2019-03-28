@@ -12,7 +12,10 @@
 		EF215B28224916D6009A9805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF215B26224916D6009A9805 /* Main.storyboard */; };
 		EF215B2A224916D8009A9805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF215B29224916D8009A9805 /* Assets.xcassets */; };
 		EF215B3522492E5F009A9805 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF215B3422492E5F009A9805 /* Launch Screen.storyboard */; };
-		EF215B3722493602009A9805 /* Pelicula_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF215B3622493602009A9805 /* Pelicula_TableViewController.swift */; };
+		EF215B3722493602009A9805 /* PeliculaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF215B3622493602009A9805 /* PeliculaTableViewController.swift */; };
+		EF7D056C224D15AB00D81ABC /* DetailFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */; };
+		EF7D056E224D180200D81ABC /* Pelicula.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056D224D180200D81ABC /* Pelicula.swift */; };
+		EF7D0570224D229600D81ABC /* PeliculaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056F224D229600D81ABC /* PeliculaManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +26,10 @@
 		EF215B29224916D8009A9805 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF215B2E224916D8009A9805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF215B3422492E5F009A9805 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		EF215B3622493602009A9805 /* Pelicula_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pelicula_TableViewController.swift; sourceTree = "<group>"; };
+		EF215B3622493602009A9805 /* PeliculaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeliculaTableViewController.swift; sourceTree = "<group>"; };
+		EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmViewController.swift; sourceTree = "<group>"; };
+		EF7D056D224D180200D81ABC /* Pelicula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pelicula.swift; sourceTree = "<group>"; };
+		EF7D056F224D229600D81ABC /* PeliculaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeliculaManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +68,10 @@
 				EF215B3422492E5F009A9805 /* Launch Screen.storyboard */,
 				EF215B29224916D8009A9805 /* Assets.xcassets */,
 				EF215B2E224916D8009A9805 /* Info.plist */,
-				EF215B3622493602009A9805 /* Pelicula_TableViewController.swift */,
+				EF215B3622493602009A9805 /* PeliculaTableViewController.swift */,
+				EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */,
+				EF7D056D224D180200D81ABC /* Pelicula.swift */,
+				EF7D056F224D229600D81ABC /* PeliculaManager.swift */,
 			);
 			path = Practica_UF1;
 			sourceTree = "<group>";
@@ -140,7 +149,10 @@
 			files = (
 				EF215B25224916D6009A9805 /* ViewController.swift in Sources */,
 				EF215B23224916D6009A9805 /* AppDelegate.swift in Sources */,
-				EF215B3722493602009A9805 /* Pelicula_TableViewController.swift in Sources */,
+				EF7D0570224D229600D81ABC /* PeliculaManager.swift in Sources */,
+				EF215B3722493602009A9805 /* PeliculaTableViewController.swift in Sources */,
+				EF7D056E224D180200D81ABC /* Pelicula.swift in Sources */,
+				EF7D056C224D15AB00D81ABC /* DetailFilmViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
