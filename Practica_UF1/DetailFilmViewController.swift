@@ -41,6 +41,8 @@ class DetailFilmViewController: UIViewController {
 
     /*
     // MARK: - Navigation
+    
+    https://stackoverflow.com/questions/33394990/creating-favorites-button-in-swift-xcode-6
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
