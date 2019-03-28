@@ -85,10 +85,7 @@ class PeliculaTableViewController: UITableViewController {
                 }
             }
         }
-    }
-    
-    
-    
+    }    
     
     @IBAction func goBack(segue: UIStoryboardSegue){
         switch segue.identifier {

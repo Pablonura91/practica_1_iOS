@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9AC314A8224D2DBA00E361D0 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC314A7224D2DBA00E361D0 /* libsqlite3.0.tbd */; };
+		9AC314B5224D2E9C00E361D0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314AB224D2E9A00E361D0 /* FMResultSet.m */; };
+		9AC314B6224D2E9C00E361D0 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314AC224D2E9A00E361D0 /* FMDatabaseAdditions.m */; };
+		9AC314B7224D2E9C00E361D0 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314AD224D2E9A00E361D0 /* FMDatabasePool.m */; };
+		9AC314B8224D2E9C00E361D0 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314AE224D2E9B00E361D0 /* FMDatabase.m */; };
+		9AC314B9224D2E9C00E361D0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314B0224D2E9B00E361D0 /* FMDatabaseQueue.m */; };
 		EF215B23224916D6009A9805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF215B22224916D6009A9805 /* AppDelegate.swift */; };
 		EF215B25224916D6009A9805 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF215B24224916D6009A9805 /* ViewController.swift */; };
 		EF215B28224916D6009A9805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF215B26224916D6009A9805 /* Main.storyboard */; };
@@ -21,6 +27,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9AC314A7224D2DBA00E361D0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9AC314A9224D2E9800E361D0 /* Practica_UF1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Practica_UF1-Bridging-Header.h"; sourceTree = "<group>"; };
+		9AC314AA224D2E9A00E361D0 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		9AC314AB224D2E9A00E361D0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		9AC314AC224D2E9A00E361D0 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		9AC314AD224D2E9A00E361D0 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		9AC314AE224D2E9B00E361D0 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		9AC314AF224D2E9B00E361D0 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		9AC314B0224D2E9B00E361D0 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		9AC314B1224D2E9B00E361D0 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		9AC314B2224D2E9B00E361D0 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		9AC314B3224D2E9B00E361D0 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		9AC314B4224D2E9B00E361D0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		EF215B1F224916D6009A9805 /* Practica_UF1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practica_UF1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF215B22224916D6009A9805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF215B24224916D6009A9805 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,17 +60,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC314A8224D2DBA00E361D0 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9AC314A6224D2DBA00E361D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AC314A7224D2DBA00E361D0 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EF215B16224916D6009A9805 = {
 			isa = PBXGroup;
 			children = (
 				EF215B21224916D6009A9805 /* Practica_UF1 */,
 				EF215B20224916D6009A9805 /* Products */,
+				9AC314A6224D2DBA00E361D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +106,18 @@
 				EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */,
 				EF7D056D224D180200D81ABC /* Pelicula.swift */,
 				EF7D056F224D229600D81ABC /* PeliculaManager.swift */,
+				9AC314AA224D2E9A00E361D0 /* FMDatabase.h */,
+				9AC314AE224D2E9B00E361D0 /* FMDatabase.m */,
+				9AC314AF224D2E9B00E361D0 /* FMDatabaseAdditions.h */,
+				9AC314AC224D2E9A00E361D0 /* FMDatabaseAdditions.m */,
+				9AC314B3224D2E9B00E361D0 /* FMDatabasePool.h */,
+				9AC314AD224D2E9A00E361D0 /* FMDatabasePool.m */,
+				9AC314B1224D2E9B00E361D0 /* FMDatabaseQueue.h */,
+				9AC314B0224D2E9B00E361D0 /* FMDatabaseQueue.m */,
+				9AC314B2224D2E9B00E361D0 /* FMDB.h */,
+				9AC314B4224D2E9B00E361D0 /* FMResultSet.h */,
+				9AC314AB224D2E9A00E361D0 /* FMResultSet.m */,
+				9AC314A9224D2E9800E361D0 /* Practica_UF1-Bridging-Header.h */,
 			);
 			path = Practica_UF1;
 			sourceTree = "<group>";
@@ -122,6 +163,7 @@
 				TargetAttributes = {
 					EF215B1E224916D6009A9805 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -165,10 +207,15 @@
 			files = (
 				EF215B25224916D6009A9805 /* ViewController.swift in Sources */,
 				EF215B23224916D6009A9805 /* AppDelegate.swift in Sources */,
+				9AC314B5224D2E9C00E361D0 /* FMResultSet.m in Sources */,
+				9AC314B8224D2E9C00E361D0 /* FMDatabase.m in Sources */,
 				EF7D0570224D229600D81ABC /* PeliculaManager.swift in Sources */,
+				9AC314B7224D2E9C00E361D0 /* FMDatabasePool.m in Sources */,
 				EF215B3722493602009A9805 /* PeliculaTableViewController.swift in Sources */,
 				EF7D056E224D180200D81ABC /* Pelicula.swift in Sources */,
+				9AC314B9224D2E9C00E361D0 /* FMDatabaseQueue.m in Sources */,
 				EF7D056C224D15AB00D81ABC /* DetailFilmViewController.swift in Sources */,
+				9AC314B6224D2E9C00E361D0 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Practica_UF1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -314,6 +362,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Pol-Vano--Pablo-Nun-ez.Practica-UF1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Practica_UF1/Practica_UF1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -323,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Practica_UF1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -331,6 +382,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Pol-Vano--Pablo-Nun-ez.Practica-UF1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Practica_UF1/Practica_UF1-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
