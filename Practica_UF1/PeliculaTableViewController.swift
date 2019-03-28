@@ -25,8 +25,8 @@ class PeliculaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        peliculasManager.addPelicula(pelicula: Pelicula(image: "", title: "Pelicula 1", horario:"12:00 | 15:30", sinopsis: "vjbcnvglojngjko"))
-       peliculasManager.addPelicula(pelicula: Pelicula(image: "", title: "Pelicula 2", horario:"12:30 | 16:00 | 19:00", sinopsis: "vjbcnvglojngjko"))
+        peliculasManager.addPelicula(pelicula: Pelicula(image: "imageHeart", title: "Pelicula 1", horario:"12:00 | 15:30", sinopsis: "vjbcnvglojngjko"))
+       peliculasManager.addPelicula(pelicula: Pelicula(image: "Heart_icon.png", title: "Pelicula 2", horario:"12:30 | 16:00 | 19:00", sinopsis: "vjbcnvglojngjko"))
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,7 +53,7 @@ class PeliculaTableViewController: UITableViewController {
         as! tableViewCell
         let pelicula = peliculasManager.peliculas[indexPath.row]
       
-        //cell.imagePelicula?.image = pelicula.image
+        cell.imagePelicula?.image = UIImage(named: pelicula.image)
         cell.titlePelicula?.text = pelicula.title
         cell.horariosPelicula?.text = pelicula.horario
         
