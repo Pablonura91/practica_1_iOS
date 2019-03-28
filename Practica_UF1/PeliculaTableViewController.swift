@@ -60,15 +60,28 @@ class PeliculaTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            peliculasManager.deletePelicula(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let item = peliculasManager.peliculas[indexPath.row]
+        self.performSegue(withIdentifier: "detailFilmSegue", sender: item)
+        tableView.reloadData()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailFilmSegue"{
-            if let cell = sender as? UITableViewCell, let indexpath = tableView.indexPath(for: cell){
-                if let destinationNavigationController = segue.destination as? UINavigationController{
-                    let targetController = destinationNavigationController.topViewController as? DetailFilmViewController{
-                        targetController.pelicula = peliculasManager.peliculas[indexpath.row]
-                    }
+        if segue.identifier == "detailFilmSegue" {
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell)
+            {
+                if let destinationNavigationController = segue.destination as? UINavigationController,
+                    let targetController = destinationNavigationController.topViewController as? DetailFilmViewController {
+                    targetController.pelicula = peliculasManager.peliculas[indexPath.row]
                 }
             }
         }
