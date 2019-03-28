@@ -125,9 +125,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bpS-Sn-k30">
-                                        <rect key="frame" x="147" y="513" width="51" height="30.5"/>
-                                    </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4T-zf-Dl1">
+                                        <rect key="frame" x="144" y="513" width="55" height="30.5"/>
+                                        <state key="normal" title="Favorite"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="xgY-Ys-H8L" firstAttribute="leading" secondItem="grr-9p-UDy" secondAttribute="leading" id="5ci-Qa-Cf1"/>
