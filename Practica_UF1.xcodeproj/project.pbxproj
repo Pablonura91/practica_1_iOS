@@ -22,8 +22,6 @@
 		EF7D056C224D15AB00D81ABC /* DetailFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */; };
 		EF7D056E224D180200D81ABC /* Pelicula.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056D224D180200D81ABC /* Pelicula.swift */; };
 		EF7D0570224D229600D81ABC /* PeliculaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056F224D229600D81ABC /* PeliculaManager.swift */; };
-		EF7D0572224D2C9D00D81ABC /* heart_icon_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = EF7D0571224D2C9D00D81ABC /* heart_icon_selected.png */; };
-		EF7D0577224D2CF300D81ABC /* Heart_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF7D0576224D2CF300D81ABC /* Heart_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +49,6 @@
 		EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmViewController.swift; sourceTree = "<group>"; };
 		EF7D056D224D180200D81ABC /* Pelicula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pelicula.swift; sourceTree = "<group>"; };
 		EF7D056F224D229600D81ABC /* PeliculaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeliculaManager.swift; sourceTree = "<group>"; };
-		EF7D0571224D2C9D00D81ABC /* heart_icon_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_icon_selected.png; sourceTree = "<group>"; };
-		EF7D0576224D2CF300D81ABC /* Heart_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Heart_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				EF7D0578224D2F3300D81ABC /* fmdb */,
-				EF7D0573224D2CAA00D81ABC /* images */,
 				EF215B22224916D6009A9805 /* AppDelegate.swift */,
 				EF215B24224916D6009A9805 /* ViewController.swift */,
 				EF215B26224916D6009A9805 /* Main.storyboard */,
@@ -110,15 +105,6 @@
 				9AC314A9224D2E9800E361D0 /* Practica_UF1-Bridging-Header.h */,
 			);
 			path = Practica_UF1;
-			sourceTree = "<group>";
-		};
-		EF7D0573224D2CAA00D81ABC /* images */ = {
-			isa = PBXGroup;
-			children = (
-				EF7D0576224D2CF300D81ABC /* Heart_icon.png */,
-				EF7D0571224D2C9D00D81ABC /* heart_icon_selected.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 		EF7D0578224D2F3300D81ABC /* fmdb */ = {
@@ -200,8 +186,6 @@
 			files = (
 				EF215B2A224916D8009A9805 /* Assets.xcassets in Resources */,
 				EF215B3522492E5F009A9805 /* Launch Screen.storyboard in Resources */,
-				EF7D0572224D2C9D00D81ABC /* heart_icon_selected.png in Resources */,
-				EF7D0577224D2CF300D81ABC /* Heart_icon.png in Resources */,
 				EF215B28224916D6009A9805 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
