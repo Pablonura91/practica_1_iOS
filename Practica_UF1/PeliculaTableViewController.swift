@@ -96,7 +96,8 @@ class PeliculaTableViewController: UITableViewController {
             print("bamo ")
         case "saveDetailFilm":
             if let backPelicula = pelicula{
-                
+                peliculasManager.addPelicula(pelicula: backPelicula)
+                tableView.reloadData()
             }
         default:
             break
