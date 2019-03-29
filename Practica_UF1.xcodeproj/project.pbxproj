@@ -95,7 +95,7 @@
 		EF215B21224916D6009A9805 /* Practica_UF1 */ = {
 			isa = PBXGroup;
 			children = (
-				EF7D0578224D2F3300D81ABC /* bbdd */,
+				EF7D0578224D2F3300D81ABC /* fmdb */,
 				EF7D0573224D2CAA00D81ABC /* images */,
 				EF215B22224916D6009A9805 /* AppDelegate.swift */,
 				EF215B24224916D6009A9805 /* ViewController.swift */,
@@ -121,7 +121,7 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		EF7D0578224D2F3300D81ABC /* bbdd */ = {
+		EF7D0578224D2F3300D81ABC /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
 				9AC314AA224D2E9A00E361D0 /* FMDatabase.h */,
@@ -136,7 +136,7 @@
 				9AC314B4224D2E9B00E361D0 /* FMResultSet.h */,
 				9AC314AB224D2E9A00E361D0 /* FMResultSet.m */,
 			);
-			path = bbdd;
+			path = fmdb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
