@@ -9,14 +9,6 @@
 import UIKit
 
 
-
-class tableViewCell: UITableViewCell{
-    @IBOutlet weak var imagePelicula: UIImageView!
-    @IBOutlet weak var horariosPelicula: UILabel!
-    @IBOutlet weak var titlePelicula: UILabel!
-}
-
-
 class PeliculaTableViewController: UITableViewController {
     
     var peliculasManager: PeliculaManager = PeliculaManager()
@@ -50,7 +42,7 @@ class PeliculaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listPeliculas", for: indexPath)
         
-        as! tableViewCell
+        as! TableViewPeliculaCell
         let pelicula = peliculasManager.peliculas[indexPath.row]
       
         cell.imagePelicula?.image = UIImage(named: pelicula.image)
