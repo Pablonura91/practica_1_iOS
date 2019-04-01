@@ -16,6 +16,17 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var detailTitle: UILabel!
     @IBOutlet weak var horario: UILabel!
     @IBOutlet weak var sinopsis: UITextView!
+    @IBOutlet weak var favorite: UIButton!
+    @IBAction func onClickFavorite(_ sender: UIButton) {
+        if favorite.backgroundColor != UIColor.red{
+            favorite.backgroundColor = UIColor.red
+            pelicula?.favorito = "1"
+        } else {
+            favorite.backgroundColor = UIColor.white
+            pelicula?.favorito = "0"
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +37,10 @@ class DetailFilmViewController: UIViewController {
             image.image = UIImage(named: currentPelicula.image)
             detailTitle.text = currentPelicula.title
             horario.text = currentPelicula.horario
-            sinopsis.text = currentPelicula.sinopsis            
+            sinopsis.text = currentPelicula.sinopsis
+            if currentPelicula.favorito == "1" {
+                favorite.backgroundColor = UIColor.red
+            }
         }
         
     }
@@ -35,6 +49,10 @@ class DetailFilmViewController: UIViewController {
         if segue.identifier == "saveDetailFilm" {
             if let rvc = segue.destination as? PeliculaTableViewController{
                 rvc.pelicula = self.pelicula
+                let databaseManager = DatabaseManager()
+                if let currentPelicula = pelicula {
+                    databaseManager.saveData(currentPelicula)
+                }
             }
         }
     }

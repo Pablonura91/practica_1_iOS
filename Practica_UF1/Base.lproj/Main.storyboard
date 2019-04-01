@@ -29,6 +29,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-4Y-lez">
                                             <rect key="frame" x="8" y="8" width="102" height="99.5"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="99.5" id="TMX-Y7-gKA"/>
                                                 <constraint firstAttribute="width" constant="102" id="gy1-mq-nV9"/>
                                             </constraints>
                                         </imageView>
@@ -128,6 +129,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4T-zf-Dl1">
                                         <rect key="frame" x="144" y="513" width="55" height="30.5"/>
                                         <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="onClickFavorite:" destination="SPf-ST-ukn" eventType="touchUpInside" id="pe3-sj-1l4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -159,6 +163,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailTitle" destination="OHi-Uf-KmX" id="FB1-hR-MJs"/>
+                        <outlet property="favorite" destination="f4T-zf-Dl1" id="VY9-PJ-Ztn"/>
                         <outlet property="horario" destination="2Mm-JK-RJv" id="HsA-I1-S87"/>
                         <outlet property="image" destination="HlS-gR-IVe" id="AIC-a5-Nbd"/>
                         <outlet property="sinopsis" destination="xgY-Ys-H8L" id="nMc-0e-G5O"/>

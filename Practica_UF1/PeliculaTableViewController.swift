@@ -15,10 +15,12 @@ class PeliculaTableViewController: UITableViewController {
     
     var pelicula: Pelicula?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        peliculasManager.addPelicula(pelicula: Pelicula(image: "imageHeartTrue", title: "Pelicula 1", horario:"12:00 | 15:30", sinopsis: "vjbcnvglojngjko"))
-        peliculasManager.addPelicula(pelicula: Pelicula(image: "imageHeartFalse", title: "Pelicula 2", horario:"12:30 | 16:00 | 19:00", sinopsis: "vjbcnvglojngjko"))
+        let dataBaseManager = DatabaseManager()
+        dataBaseManager.setUpDataBase()
+        dataBaseManager.selectData(peliculasManager)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -91,19 +93,39 @@ class PeliculaTableViewController: UITableViewController {
         default:
             break
         }
-        
-        func setUpDataBase(){
-            let fileManager = FileManager()
-            
-        }
-        
-        
-    }
-    
-    
-    
+    }    
 }
 
 
 //https://www.ralfebert.de/ios-examples/uikit/uitableviewcontroller/custom-cells/
 //custom cells shit
+
+//INSERT into database
+/*
+ 
+ let cinemaDB = FMDatabase(path:databasePath)
+ 
+ if cinemaDB.open(){
+ let insertSQL = "INSERT INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
+ let data = ["1", "imageHeartTrue","Pelicula 1", "12:00 | 15:30", "siensia", "pofghudopfh", "0"]
+ if !cinemaDB.executeUpdate(insertSQL, withArgumentsIn: data){
+ print(cinemaDB.lastError().localizedDescription)
+ }
+ 
+ let insertSQL2 = "INSERT INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
+ let data2 = ["1", "imageHeartFalse","Pelicula 2", "12:30 | 16:00 | 19:00", "kappa", "pofghudopfh", "1"]
+ if !cinemaDB.executeUpdate(insertSQL2, withArgumentsIn: data2){
+ print(cinemaDB.lastError().localizedDescription)
+ }
+ cinemaDB.close()
+ 
+ }else{
+ print(cinemaDB.lastError().localizedDescription)
+ }
+ */
+
+
+
+//harcoded films
+/*peliculasManager.addPelicula(pelicula: Pelicula(image: "imageHeartTrue", title: "Pelicula 1", horario:"12:00 | 15:30", sinopsis: "vjbcnvglojngjko"))
+ peliculasManager.addPelicula(pelicula: Pelicula(image: "imageHeartFalse", title: "Pelicula 2", horario:"12:30 | 16:00 | 19:00", sinopsis: "vjbcnvglojngjko"))*/

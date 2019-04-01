@@ -20,6 +20,7 @@
 		EF215B3522492E5F009A9805 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF215B3422492E5F009A9805 /* Launch Screen.storyboard */; };
 		EF215B3722493602009A9805 /* PeliculaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF215B3622493602009A9805 /* PeliculaTableViewController.swift */; };
 		EF2546ED22524D8A002F3C10 /* TableViewPeliculaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2546EC22524D8A002F3C10 /* TableViewPeliculaCell.swift */; };
+		EF2546F12252661F002F3C10 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2546F02252661F002F3C10 /* DatabaseManager.swift */; };
 		EF7D056C224D15AB00D81ABC /* DetailFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */; };
 		EF7D056E224D180200D81ABC /* Pelicula.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056D224D180200D81ABC /* Pelicula.swift */; };
 		EF7D0570224D229600D81ABC /* PeliculaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D056F224D229600D81ABC /* PeliculaManager.swift */; };
@@ -48,6 +49,7 @@
 		EF215B3422492E5F009A9805 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EF215B3622493602009A9805 /* PeliculaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeliculaTableViewController.swift; sourceTree = "<group>"; };
 		EF2546EC22524D8A002F3C10 /* TableViewPeliculaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPeliculaCell.swift; sourceTree = "<group>"; };
+		EF2546F02252661F002F3C10 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		EF7D056B224D15AB00D81ABC /* DetailFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmViewController.swift; sourceTree = "<group>"; };
 		EF7D056D224D180200D81ABC /* Pelicula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pelicula.swift; sourceTree = "<group>"; };
 		EF7D056F224D229600D81ABC /* PeliculaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeliculaManager.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				EF7D056F224D229600D81ABC /* PeliculaManager.swift */,
 				9AC314A9224D2E9800E361D0 /* Practica_UF1-Bridging-Header.h */,
 				EF2546EC22524D8A002F3C10 /* TableViewPeliculaCell.swift */,
+				EF2546F02252661F002F3C10 /* DatabaseManager.swift */,
 			);
 			path = Practica_UF1;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				EF2546ED22524D8A002F3C10 /* TableViewPeliculaCell.swift in Sources */,
 				EF215B25224916D6009A9805 /* ViewController.swift in Sources */,
+				EF2546F12252661F002F3C10 /* DatabaseManager.swift in Sources */,
 				EF215B23224916D6009A9805 /* AppDelegate.swift in Sources */,
 				9AC314B5224D2E9C00E361D0 /* FMResultSet.m in Sources */,
 				9AC314B8224D2E9C00E361D0 /* FMDatabase.m in Sources */,
