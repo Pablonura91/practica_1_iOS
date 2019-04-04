@@ -83,8 +83,8 @@ class PeliculaTableViewController: UITableViewController {
     
     @IBAction func goBack(segue: UIStoryboardSegue){
         switch segue.identifier {
-        case "cancelDetailFilm":
-            print("bamo ")
+        case "cancelDetailFilm": break
+            
         case "saveDetailFilm":
             if let backPelicula = pelicula{
                 peliculasManager.addPelicula(pelicula: backPelicula)

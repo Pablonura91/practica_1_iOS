@@ -19,6 +19,7 @@ class PeliculaManager {
     func deletePelicula(index: Int){
         self.peliculas.remove(at: index)
     }
+    
     func clear(){
         self.peliculas.removeAll()
     }

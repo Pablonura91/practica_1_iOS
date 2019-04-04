@@ -9,6 +9,7 @@
 import Foundation
 
 struct Pelicula {
+    
     var id:String
     var image:String
     var title:String
@@ -16,5 +17,7 @@ struct Pelicula {
     var horario:String
     var sinopsis:String
     var favorito:String
+    
+    
 }
 
