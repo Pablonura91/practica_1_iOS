@@ -57,7 +57,16 @@ class DatabaseManager: SQLiteDAO{
     }
     
     func delete(_ database: FMDatabase, newRecord: AnyObject) -> Bool {
-        return true
+        var result = false
+        let cinemaDB = database
+        let idFilm = [newRecord]
+        
+        if cinemaDB.open(){
+            let deleteSQL = "DELETE FROM films WHERE ID_Film = ?"
+            
+            result = cinemaDB.executeQuery(deleteSQL, withArgumentsIn: idFilm)?.next() ?? false
+        }
+        return result
     }
     
     func readRecords(_ database: FMDatabase) -> AnyObject{

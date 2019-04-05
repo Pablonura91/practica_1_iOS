@@ -59,7 +59,9 @@ class PeliculaTableViewController: UITableViewController {
         if editingStyle == .delete{
             if let currentPeliculaManager = peliculasManager {
              currentPeliculaManager.deletePelicula(index: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)}
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                dataBaseManager.delete(database, newRecord: indexPath.row as AnyObject)
+            }
         }
     }
     
