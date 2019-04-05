@@ -12,15 +12,17 @@ import UIKit
 class PeliculaTableViewController: UITableViewController {
     
     var peliculasManager: PeliculaManager = PeliculaManager()
-    
+    var dataBaseManager: DatabaseManager?
     var pelicula: Pelicula?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataBaseManager = DatabaseManager()
-        dataBaseManager.setUpDataBase()
-        dataBaseManager.selectData(peliculasManager)
+        self.dataBaseManager = DatabaseManager()
+        if let currentDatabaseManager = dataBaseManager {
+            currentDatabaseManager.setUpDataBase()
+            currentDatabaseManager.selectData(peliculasManager)
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -88,6 +90,12 @@ class PeliculaTableViewController: UITableViewController {
         case "saveDetailFilm":
             if let backPelicula = pelicula{
                 peliculasManager.addPelicula(pelicula: backPelicula)
+                tableView.reloadData()
+            }
+        case "saveNewFilm":
+            if let backPelicula = pelicula{
+                peliculasManager.addPelicula(pelicula: backPelicula)
+                dataBaseManager?.saveData(backPelicula)
                 tableView.reloadData()
             }
         default:

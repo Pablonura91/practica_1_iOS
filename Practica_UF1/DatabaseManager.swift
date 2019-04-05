@@ -87,6 +87,25 @@ class DatabaseManager{
         }
     }
     
+    func insertData(_ pelicula: Pelicula){
+        let cinemaDB = FMDatabase(path:databasePath)
+        
+        if cinemaDB.open(){
+            let insertSQL = "INSERT INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
+            let data = ["3", pelicula.image, pelicula.title, pelicula.horario, pelicula.genero, pelicula.sinopsis, "0"]
+            if !cinemaDB.executeUpdate(insertSQL, withArgumentsIn: data){
+                print(cinemaDB.lastError().localizedDescription)
+            }
+            
+            let insertSQL2 = "INSERT INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
+            let data2 = ["2", "imageHeartFalse","Pelicula 2", "12:30 | 16:00 | 19:00", "kappa", "pofghudopfh", "1"]
+            if !cinemaDB.executeUpdate(insertSQL2, withArgumentsIn: data2){
+                print(cinemaDB.lastError().localizedDescription)
+            }
+            cinemaDB.close()
+        }
+    }
+        
     
 }
 

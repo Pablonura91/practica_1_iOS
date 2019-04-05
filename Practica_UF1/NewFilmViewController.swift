@@ -9,14 +9,10 @@
 import UIKit
 
 class NewFilmViewController: UIViewController, UITextFieldDelegate {
-
     
     @IBOutlet weak var filmTitle: UITextField!
-    
     @IBOutlet weak var filmGender: UITextField!
-    
     @IBOutlet weak var filmHorario: UITextField!
-    
     @IBOutlet weak var filmSinopsis: UITextView!
     
     var pelicula: Pelicula?
@@ -39,9 +35,7 @@ class NewFilmViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveNewFilm"{
             if let rvc = segue.destination as? PeliculaTableViewController{
-                
-                rvc.pelicula = Pelicula()
-                
+                rvc.pelicula = Pelicula(id: "4", image: "", title: filmTitle.text ?? "", genero: filmGender.text ?? "", horario: filmHorario.text ?? "", sinopsis: filmSinopsis.text ?? "", favorito: "0")
             }
             
         }
