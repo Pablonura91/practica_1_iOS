@@ -11,18 +11,16 @@ import UIKit
 
 class PeliculaTableViewController: UITableViewController {
     
-    var peliculasManager: PeliculaManager = PeliculaManager()
-    var dataBaseManager: DatabaseManager?
+    var database: FMDatabase = SQLiteSingleton.getInstance()
+    var dataBaseManager: DatabaseManager = (SQLiteFactory.createFactory(0) as! DatabaseManager)
+    var peliculasManager: PeliculaManager?
     var pelicula: Pelicula?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataBaseManager = DatabaseManager()
-        if let currentDatabaseManager = dataBaseManager {
-            currentDatabaseManager.setUpDataBase()
-            currentDatabaseManager.selectData(peliculasManager)
-        }
+        peliculasManager = dataBaseManager.readRecords(database) as? PeliculaManager
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,34 +38,38 @@ class PeliculaTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return peliculasManager.peliculas.count
+        return peliculasManager?.peliculas.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listPeliculas", for: indexPath)
         
         as! TableViewPeliculaCell
-        let pelicula = peliculasManager.peliculas[indexPath.row]
-      
-        cell.imagePelicula?.image = UIImage(named: pelicula.image)
-        cell.titlePelicula?.text = pelicula.title
-        cell.horariosPelicula?.text = pelicula.horario
+        if let currentPeliculaManager = peliculasManager {
+            let pelicula = currentPeliculaManager.peliculas[indexPath.row]
+            cell.imagePelicula?.image = UIImage(named: pelicula.image)
+            cell.titlePelicula?.text = pelicula.title
+            cell.horariosPelicula?.text = pelicula.horario
+        }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            peliculasManager.deletePelicula(index: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if let currentPeliculaManager = peliculasManager {
+             currentPeliculaManager.deletePelicula(index: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)}
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        let item = peliculasManager.peliculas[indexPath.row]
-        self.performSegue(withIdentifier: "detailFilmSegue", sender: item)
-        tableView.reloadData()
+        if let currentPeliculaManager = peliculasManager {
+            let item = currentPeliculaManager.peliculas[indexPath.row]
+            self.performSegue(withIdentifier: "detailFilmSegue", sender: item)
+            tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,7 +79,9 @@ class PeliculaTableViewController: UITableViewController {
             {
                 if let destinationNavigationController = segue.destination as? UINavigationController,
                     let targetController = destinationNavigationController.topViewController as? DetailFilmViewController {
-                    targetController.pelicula = peliculasManager.peliculas[indexPath.row]
+                    if let currentPeliculaManager = peliculasManager {
+                        targetController.pelicula = currentPeliculaManager.peliculas[indexPath.row]
+                    }
                 }
             }
         }
@@ -89,15 +93,21 @@ class PeliculaTableViewController: UITableViewController {
             
         case "saveDetailFilm":
             if let backPelicula = pelicula{
-                peliculasManager.addPelicula(pelicula: backPelicula)
-                dataBaseManager?.saveData(backPelicula)
-                tableView.reloadData()
+                if let currentPeliculaManager = peliculasManager {
+                    currentPeliculaManager.addPelicula(pelicula: backPelicula)
+                }
+                if (dataBaseManager.update(database, newRecord: backPelicula as AnyObject)){
+                    tableView.reloadData()
+                }
             }
         case "saveNewFilm":
             if let backPelicula = pelicula{
-                peliculasManager.addPelicula(pelicula: backPelicula)
-                dataBaseManager?.insertData(backPelicula)
-                tableView.reloadData()
+                if let currentPeliculaManager = peliculasManager {
+                    currentPeliculaManager.addPelicula(pelicula: backPelicula)
+                }
+                if (dataBaseManager.insert(database, newRecord: backPelicula as AnyObject)){
+                    tableView.reloadData()
+                }
             }
         default:
             break

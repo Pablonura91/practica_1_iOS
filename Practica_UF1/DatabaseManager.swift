@@ -8,11 +8,100 @@
 
 import Foundation
 
-class DatabaseManager{
-
+class DatabaseManager: SQLiteDAO{
     let databaseFileName = "cinema.db"
     var databasePath:String?
     
+    func insert(_ database: FMDatabase, newRecord: AnyObject) -> Bool {
+        var result = false
+        let pelicula = newRecord as! Pelicula
+        let cinemaDB = database
+        
+        if cinemaDB.open(){
+            let lastIDSQL = "SELECT MAX(ID_Film) FROM films"
+            let data: [Any]=[Any]()
+            var data2: [Any]=[Any]()
+            if let resultSet = cinemaDB.executeQuery(lastIDSQL, withArgumentsIn: data){
+                resultSet.next()
+                if let result = resultSet.string(forColumnIndex: 0){
+                    let lastIndex = Int(result) ?? 0
+                    data2 = [String(lastIndex + 1), pelicula.image, pelicula.title, pelicula.horario, pelicula.genero, pelicula.sinopsis, "0"]
+                }
+                
+            }
+            
+            let insertSQL = "INSERT INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
+            result = cinemaDB.executeUpdate(insertSQL, withArgumentsIn: data2)
+               
+            cinemaDB.close()
+        } else {
+            print("Error \(database.lastErrorMessage())")
+        }
+        return result
+    }
+    
+    func update(_ database: FMDatabase, newRecord: AnyObject) -> Bool {
+        var result = false
+        let pelicula = newRecord as! Pelicula
+        let cinemaDB = database
+        
+        if cinemaDB.open(){
+            let updateSQL = "UPDATE INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
+            let data = [pelicula.id, pelicula.image, pelicula.title, pelicula.horario, pelicula.genero, pelicula.sinopsis, pelicula.favorito]
+            result = cinemaDB.executeUpdate(updateSQL, withArgumentsIn: data)
+            cinemaDB.close()
+        } else {
+            print("Error \(database.lastErrorMessage())")
+        }
+        return result
+    }
+    
+    func delete(_ database: FMDatabase, newRecord: AnyObject) -> Bool {
+        return true
+    }
+    
+    func readRecords(_ database: FMDatabase) -> AnyObject{
+        let peliculasManager = PeliculaManager()
+        let cinemaDB = database
+        
+        if cinemaDB.open(){
+            let selectSQL = "SELECT * FROM films"
+            let data: [Any]=[Any]()
+            var id, image, name, date, gender, sinopsis, favorite: String?
+            if let resultSet = cinemaDB.executeQuery(selectSQL, withArgumentsIn: data){
+                while(resultSet.next()){
+                    if let filmSelect = resultSet.string(forColumnIndex: 0){
+                        id = filmSelect
+                    }
+                    if let filmSelect = resultSet.string(forColumnIndex: 1){
+                        image = filmSelect
+                    }
+                    if let filmSelect = resultSet.string(forColumnIndex: 2){
+                        name = filmSelect
+                    }
+                    if let filmSelect = resultSet.string(forColumnIndex: 3){
+                        date = filmSelect
+                    }
+                    if let filmSelect = resultSet.string(forColumnIndex: 4){
+                        gender = filmSelect
+                    }
+                    if let filmSelect = resultSet.string(forColumnIndex: 5){
+                        sinopsis = filmSelect
+                    }
+                    if let filmSelect = resultSet.string(forColumnIndex: 6){
+                        favorite = filmSelect
+                    }
+                    
+                    peliculasManager.addPelicula(pelicula: Pelicula(id: id!, image: image!, title: name!, genero: gender!, horario: date!, sinopsis: sinopsis!, favorito: favorite!))
+                }
+                resultSet.close()
+            }
+            cinemaDB.close()
+        } else {
+            print("Error \(database.lastErrorMessage())")
+        }
+        return peliculasManager
+    }
     //get document device directory
     func setUpDataBase(){
         let fileManager = FileManager()
