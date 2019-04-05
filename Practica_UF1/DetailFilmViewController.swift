@@ -49,10 +49,6 @@ class DetailFilmViewController: UIViewController {
         if segue.identifier == "saveDetailFilm" {
             if let rvc = segue.destination as? PeliculaTableViewController{
                 rvc.pelicula = self.pelicula
-                let databaseManager = DatabaseManager()
-                if let currentPelicula = pelicula {
-                    databaseManager.saveData(currentPelicula)
-                }
             }
         }
     }

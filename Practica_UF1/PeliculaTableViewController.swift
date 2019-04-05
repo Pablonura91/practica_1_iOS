@@ -90,12 +90,13 @@ class PeliculaTableViewController: UITableViewController {
         case "saveDetailFilm":
             if let backPelicula = pelicula{
                 peliculasManager.addPelicula(pelicula: backPelicula)
+                dataBaseManager?.saveData(backPelicula)
                 tableView.reloadData()
             }
         case "saveNewFilm":
             if let backPelicula = pelicula{
                 peliculasManager.addPelicula(pelicula: backPelicula)
-                dataBaseManager?.saveData(backPelicula)
+                dataBaseManager?.insertData(backPelicula)
                 tableView.reloadData()
             }
         default:
