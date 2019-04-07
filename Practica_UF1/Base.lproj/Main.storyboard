@@ -309,10 +309,10 @@
             </objects>
             <point key="canvasLocation" x="-28" y="-604"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Peliculas Favoritas Table View Controller-->
         <scene sceneID="l3H-0n-MF1">
             <objects>
-                <tableViewController id="bB6-2t-GrI" sceneMemberID="viewController">
+                <tableViewController id="bB6-2t-GrI" customClass="PeliculasFavoritasTableViewController" customModule="Practica_UF1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Ye-9m-2Y1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

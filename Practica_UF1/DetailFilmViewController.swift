@@ -20,10 +20,10 @@ class DetailFilmViewController: UIViewController {
     @IBAction func onClickFavorite(_ sender: UIButton) {
         if favorite.backgroundColor != UIColor.red{
             favorite.backgroundColor = UIColor.red
-            pelicula?.favorito = "1"
+            self.pelicula?.favorito = "1"
         } else {
             favorite.backgroundColor = UIColor.white
-            pelicula?.favorito = "0"
+            self.pelicula?.favorito = "0"
         }
     }
     

@@ -12,4 +12,5 @@ protocol SQLiteDAO {
     func update(_ database: FMDatabase, newRecord: AnyObject) -> Bool
     func delete(_ database: FMDatabase, newRecord: AnyObject) -> Bool
     func readRecords(_ database: FMDatabase) -> AnyObject
+    func readRecordsByFavorites(_ database: FMDatabase) -> AnyObject
 }
