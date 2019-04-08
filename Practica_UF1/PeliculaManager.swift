@@ -9,7 +9,6 @@
 import Foundation
 
 class PeliculaManager {
-    
     var peliculas:[Pelicula]=[Pelicula]()
     
     func addPelicula(pelicula: Pelicula){

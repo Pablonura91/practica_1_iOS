@@ -21,10 +21,6 @@ class NewFilmViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         filmSinopsis.layer.borderWidth = 1
-        
-        // Do any additional setup after loading the view.
-        
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
@@ -37,19 +33,7 @@ class NewFilmViewController: UIViewController, UITextFieldDelegate {
             if let rvc = segue.destination as? PeliculaTableViewController{
                 rvc.pelicula = Pelicula(id: "4", image: "", title: filmTitle.text ?? "", genero: filmGender.text ?? "", horario: filmHorario.text ?? "", sinopsis: filmSinopsis.text ?? "", favorito: "0")
             }
-            
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

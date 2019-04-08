@@ -11,16 +11,16 @@ import UIKit
 
 class PeliculaTableViewController: UITableViewController {
     
-    var database: FMDatabase = SQLiteSingleton.getInstance()
-    var dataBaseManager: DatabaseManager = (SQLiteFactory.createFactory(0) as! DatabaseManager)
-    var peliculasManager: PeliculaManager?
+    private var database: FMDatabase = SQLiteSingleton.getInstance()
+    private var dataBaseManager: DatabaseManager = (SQLiteFactory.createFactory(0) as! DatabaseManager)
+    private var peliculasManager: PeliculaManager?
     var pelicula: Pelicula?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataBaseManager = DatabaseManager()
-        peliculasManager = dataBaseManager.readRecords(database) as? PeliculaManager
+        //self.dataBaseManager = DatabaseManager()
+        //peliculasManager = dataBaseManager.readRecords(database) as? PeliculaManager
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -150,8 +150,6 @@ class PeliculaTableViewController: UITableViewController {
  print(cinemaDB.lastError().localizedDescription)
  }
  */
-
-
 
 //harcoded films
 /*peliculasManager.addPelicula(pelicula: Pelicula(image: "imageHeartTrue", title: "Pelicula 1", horario:"12:00 | 15:30", sinopsis: "vjbcnvglojngjko"))

@@ -9,7 +9,6 @@
 import UIKit
 
 class TableViewPeliculaCell: UITableViewCell {
-
     @IBOutlet weak var imagePelicula: UIImageView!
     @IBOutlet weak var horariosPelicula: UILabel!
     @IBOutlet weak var titlePelicula: UILabel!

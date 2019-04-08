@@ -9,15 +9,12 @@
 import Foundation
 
 struct Pelicula {
-    
-    var id:String
-    var image:String
-    var title:String
-    var genero:String
-    var horario:String
-    var sinopsis:String
-    var favorito:String
-    
-    
+     var id:String
+     var image:String
+     var title:String
+     var genero:String
+     var horario:String
+     var sinopsis:String
+     var favorito:String
 }
 

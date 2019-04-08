@@ -18,7 +18,6 @@
 		9AC314B8224D2E9C00E361D0 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314AE224D2E9B00E361D0 /* FMDatabase.m */; };
 		9AC314B9224D2E9C00E361D0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314B0224D2E9B00E361D0 /* FMDatabaseQueue.m */; };
 		EF215B23224916D6009A9805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF215B22224916D6009A9805 /* AppDelegate.swift */; };
-		EF215B25224916D6009A9805 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF215B24224916D6009A9805 /* ViewController.swift */; };
 		EF215B28224916D6009A9805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF215B26224916D6009A9805 /* Main.storyboard */; };
 		EF215B2A224916D8009A9805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF215B29224916D8009A9805 /* Assets.xcassets */; };
 		EF215B3522492E5F009A9805 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF215B3422492E5F009A9805 /* Launch Screen.storyboard */; };
@@ -51,7 +50,6 @@
 		9AC314B4224D2E9B00E361D0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		EF215B1F224916D6009A9805 /* Practica_UF1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practica_UF1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF215B22224916D6009A9805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF215B24224916D6009A9805 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EF215B27224916D6009A9805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF215B29224916D8009A9805 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF215B2E224916D8009A9805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			children = (
 				EF7D0578224D2F3300D81ABC /* fmdb */,
 				EF215B22224916D6009A9805 /* AppDelegate.swift */,
-				EF215B24224916D6009A9805 /* ViewController.swift */,
 				EF215B26224916D6009A9805 /* Main.storyboard */,
 				EF215B3422492E5F009A9805 /* Launch Screen.storyboard */,
 				EF215B29224916D8009A9805 /* Assets.xcassets */,
@@ -219,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2546ED22524D8A002F3C10 /* TableViewPeliculaCell.swift in Sources */,
-				EF215B25224916D6009A9805 /* ViewController.swift in Sources */,
 				EF2546F12252661F002F3C10 /* DatabaseManager.swift in Sources */,
 				EF215B23224916D6009A9805 /* AppDelegate.swift in Sources */,
 				9AC314B5224D2E9C00E361D0 /* FMResultSet.m in Sources */,

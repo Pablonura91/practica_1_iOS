@@ -9,8 +9,8 @@
 import Foundation
 
 class DatabaseManager: SQLiteDAO{
-    let databaseFileName = "cinema.db"
-    var databasePath:String?
+    private let databaseFileName = "cinema.db"
+    private var databasePath:String?
     
     func insert(_ database: FMDatabase, newRecord: AnyObject) -> Bool {
         var result = false
@@ -19,20 +19,18 @@ class DatabaseManager: SQLiteDAO{
         
         if cinemaDB.open(){
             let lastIDSQL = "SELECT MAX(ID_Film) FROM films"
-            let data: [Any]=[Any]()
-            var data2: [Any]=[Any]()
+            var data: [Any]=[Any]()
             if let resultSet = cinemaDB.executeQuery(lastIDSQL, withArgumentsIn: data){
                 resultSet.next()
                 if let result = resultSet.string(forColumnIndex: 0){
                     let lastIndex = Int(result) ?? 0
-                    data2 = [String(lastIndex + 1), pelicula.image, pelicula.title, pelicula.horario, pelicula.genero, pelicula.sinopsis, "0"]
+                    data = [String(lastIndex + 1), pelicula.image, pelicula.title, pelicula.horario, pelicula.genero, pelicula.sinopsis, "0"]
                 }
-                
             }
             
             let insertSQL = "INSERT INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
-            result = cinemaDB.executeUpdate(insertSQL, withArgumentsIn: data2)
-               
+            result = cinemaDB.executeUpdate(insertSQL, withArgumentsIn: data)
+            
             cinemaDB.close()
         } else {
             print("Error \(database.lastErrorMessage())")
@@ -77,32 +75,31 @@ class DatabaseManager: SQLiteDAO{
         if cinemaDB.open(){
             let selectSQL = "SELECT * FROM films"
             let data: [Any]=[Any]()
-            var id, image, name, date, gender, sinopsis, favorite: String?
             if let resultSet = cinemaDB.executeQuery(selectSQL, withArgumentsIn: data){
                 while(resultSet.next()){
-                    if let filmSelect = resultSet.string(forColumnIndex: 0){
-                        id = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 1){
-                        image = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 2){
-                        name = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 3){
-                        date = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 4){
-                        gender = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 5){
-                        sinopsis = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 6){
-                        favorite = filmSelect
-                    }
-                    
-                    peliculasManager.addPelicula(pelicula: Pelicula(id: id!, image: image!, title: name!, genero: gender!, horario: date!, sinopsis: sinopsis!, favorito: favorite!))
+                    peliculasManager.addPelicula(pelicula: readPeliculas(resultSet: resultSet, peliculasManager: peliculasManager))
+                }
+                resultSet.close()
+            }
+            cinemaDB.close()
+        } else {
+            print("Error \(database.lastErrorMessage())")
+        }
+        return peliculasManager
+    }
+
+    func readRecordsByFavorites(_ database: FMDatabase) -> AnyObject {
+        let peliculasManager = PeliculaManager()
+        peliculasManager.clear()
+        let cinemaDB = database
+        
+        if cinemaDB.open(){
+            let selectSQL = "SELECT * FROM films WHERE Favorite = 1"
+            let data: [Any]=[Any]()
+            
+            if let resultSet = cinemaDB.executeQuery(selectSQL, withArgumentsIn: data){
+                while(resultSet.next()){
+                    peliculasManager.addPelicula(pelicula: readPeliculas(resultSet: resultSet, peliculasManager: peliculasManager))
                 }
                 resultSet.close()
             }
@@ -113,49 +110,34 @@ class DatabaseManager: SQLiteDAO{
         return peliculasManager
     }
     
-    func readRecordsByFavorites(_ database: FMDatabase) -> AnyObject {
-        let peliculasManager = PeliculaManager()
-        peliculasManager.clear()
-        let cinemaDB = database
+    private func readPeliculas(resultSet: FMResultSet, peliculasManager: PeliculaManager) -> Pelicula{
+        var id, image, title, horario, genero, sinopsis, favorito: String?
         
-        if cinemaDB.open(){
-            let selectSQL = "SELECT * FROM films WHERE Favorite = 1"
-            let data: [Any]=[Any]()
-            var id, image, name, date, gender, sinopsis, favorite: String?
-            if let resultSet = cinemaDB.executeQuery(selectSQL, withArgumentsIn: data){
-                while(resultSet.next()){
-                    if let filmSelect = resultSet.string(forColumnIndex: 0){
-                        id = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 1){
-                        image = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 2){
-                        name = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 3){
-                        date = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 4){
-                        gender = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 5){
-                        sinopsis = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 6){
-                        favorite = filmSelect
-                    }
-                    
-                    peliculasManager.addPelicula(pelicula: Pelicula(id: id!, image: image!, title: name!, genero: gender!, horario: date!, sinopsis: sinopsis!, favorito: favorite!))
-                }
-                resultSet.close()
+            if let filmSelect = resultSet.string(forColumnIndex: 0){
+                id = filmSelect
             }
-            cinemaDB.close()
-        } else {
-            print("Error \(database.lastErrorMessage())")
-        }
-        return peliculasManager
+            if let filmSelect = resultSet.string(forColumnIndex: 1){
+                image = filmSelect
+            }
+            if let filmSelect = resultSet.string(forColumnIndex: 2){
+                title = filmSelect
+            }
+            if let filmSelect = resultSet.string(forColumnIndex: 3){
+                horario = filmSelect
+            }
+            if let filmSelect = resultSet.string(forColumnIndex: 4){
+                genero = filmSelect
+            }
+            if let filmSelect = resultSet.string(forColumnIndex: 5){
+                sinopsis = filmSelect
+            }
+            if let filmSelect = resultSet.string(forColumnIndex: 6){
+                favorito = filmSelect
+            }
+        
+        return Pelicula(id: id ?? "0", image: image ?? "", title: title ?? "", genero: genero ?? "", horario: horario ?? "", sinopsis: sinopsis ?? "", favorito: favorito ?? "")
     }
+    
     //get document device directory
     func setUpDataBase(){
         let fileManager = FileManager()
@@ -174,89 +156,8 @@ class DatabaseManager: SQLiteDAO{
         }else{
             print(cinemaDB.lastError().localizedDescription)
         }
-        
     }
-    
-    func selectData(_ peliculasManager: PeliculaManager){
-        peliculasManager.clear()
-        let cinemaDB = FMDatabase(path:databasePath)
-        
-        if cinemaDB.open(){
-            let selectSQL = "SELECT * FROM films"
-            let data: [Any]=[Any]()
-            var id, image, name, date, gender, sinopsis, favorite: String?
-            if let resultSet = cinemaDB.executeQuery(selectSQL, withArgumentsIn: data){
-                while(resultSet.next()){
-                    if let filmSelect = resultSet.string(forColumnIndex: 0){
-                        id = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 1){
-                        image = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 2){
-                        name = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 3){
-                        date = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 4){
-                        gender = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 5){
-                        sinopsis = filmSelect
-                    }
-                    if let filmSelect = resultSet.string(forColumnIndex: 6){
-                        favorite = filmSelect
-                    }
-                    
-                    peliculasManager.addPelicula(pelicula: Pelicula(id: id!, image: image!, title: name!, genero: gender!, horario: date!, sinopsis: sinopsis!, favorito: favorite!))
-                }
-                resultSet.close()
-            }
-            cinemaDB.close()
-        }
-    }
-    
-    func saveData(_ pelicula: Pelicula){
-        let cinemaDB = FMDatabase(path:databasePath)
-        
-        if cinemaDB.open(){
-            let updateSQL = "UPDATE INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
-            let data = [pelicula.id, pelicula.image, pelicula.title, pelicula.horario, pelicula.genero, pelicula.sinopsis, pelicula.favorito]
-            if !cinemaDB.executeUpdate(updateSQL, withArgumentsIn: data){
-                print(cinemaDB.lastError().localizedDescription)
-            }
-            cinemaDB.close()
-        }
-    }
-    
-    func insertData(_ pelicula: Pelicula){
-        let cinemaDB = FMDatabase(path:databasePath)
-        
-        if cinemaDB.open(){
-            let lastIDSQL = "SELECT MAX(ID_Film) FROM films"
-            let data: [Any]=[Any]()
-            var data2: [Any]=[Any]()
-            if let resultSet = cinemaDB.executeQuery(lastIDSQL, withArgumentsIn: data){
-                resultSet.next()
-                if let result = resultSet.string(forColumnIndex: 0){
-                    let lastIndex = Int(result) ?? 0
-                    data2 = [String(lastIndex + 1), pelicula.image, pelicula.title, pelicula.horario, pelicula.genero, pelicula.sinopsis, "0"]
-                }
-                
-            }
-            
-            let insertSQL = "INSERT INTO films (ID_Film, Image, Name, Date, Gender, Sinopsis, Favorite) VALUES(?,?,?,?,?,?,?)"
-            if !cinemaDB.executeUpdate(insertSQL, withArgumentsIn: data2){
-                print(cinemaDB.lastError().localizedDescription)
-            }
-            cinemaDB.close()
-        }
-    }
-        
-    
 }
-
 
 
 
