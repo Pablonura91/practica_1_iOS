@@ -25,6 +25,12 @@ class PeliculasFavoritasTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.dataBaseManager = DatabaseManager()
+        peliculasManager = dataBaseManager.readRecordsByFavorites(database) as? PeliculaManager
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

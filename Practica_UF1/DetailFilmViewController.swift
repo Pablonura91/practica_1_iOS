@@ -52,6 +52,22 @@ class DetailFilmViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let currentPelicula = pelicula{
+            self.pelicula = currentPelicula
+            
+            image.image = UIImage(named: currentPelicula.image)
+            detailTitle.text = currentPelicula.title
+            horario.text = currentPelicula.horario
+            sinopsis.text = currentPelicula.sinopsis
+            if currentPelicula.favorito == "1" {
+                favorite.backgroundColor = UIColor.red
+            }
+        }
+    }
+    
+    
 
     /*
     // MARK: - Navigation
