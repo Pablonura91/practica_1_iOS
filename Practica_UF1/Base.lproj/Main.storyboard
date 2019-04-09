@@ -365,7 +365,7 @@
                                     <outlet property="horariosPelicula" destination="q3P-6l-33a" id="a33-M9-6tT"/>
                                     <outlet property="imagePelicula" destination="3Ck-oD-HIC" id="KA3-Jd-RJs"/>
                                     <outlet property="titlePelicula" destination="uZg-6R-iAF" id="0ls-cJ-Xaa"/>
-                                    <segue destination="nRI-iP-OLG" kind="presentation" id="sk5-ly-AFK"/>
+                                    <segue destination="nRI-iP-OLG" kind="presentation" identifier="DetailFavFilm" id="tHL-aS-Xbm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -398,10 +398,10 @@
             </objects>
             <point key="canvasLocation" x="2974" y="-934"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Film Fav View Controller-->
         <scene sceneID="NaP-d8-6Wv">
             <objects>
-                <viewController id="v6m-lz-6X0" sceneMemberID="viewController">
+                <viewController id="v6m-lz-6X0" customClass="DetailFilmFavViewController" customModule="Practica_UF1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Yo-wz-mbM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,6 +412,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-f5-Idt">
                                         <rect key="frame" x="97" y="0.0" width="188" height="153"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="188" id="Mso-V8-QWM"/>
                                             <constraint firstAttribute="height" constant="153" id="bo4-su-UON"/>
                                         </constraints>
                                     </imageView>
@@ -465,11 +466,27 @@
                         <viewLayoutGuide key="safeArea" id="CLR-XY-IHq"/>
                     </view>
                     <navigationItem key="navigationItem" id="06r-I1-7gz">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hJh-eU-T4M"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eUF-8P-hAU"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hJh-eU-T4M">
+                            <connections>
+                                <segue destination="DQw-ZX-XVw" kind="unwind" unwindAction="goBackWithSegue:" id="FD9-te-AGO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eUF-8P-hAU">
+                            <connections>
+                                <segue destination="DQw-ZX-XVw" kind="unwind" unwindAction="goBackWithSegue:" id="lU3-CD-R4F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="detailTitle" destination="8UK-yO-F9W" id="94u-AF-5cI"/>
+                        <outlet property="favorite" destination="j4O-h9-ZJo" id="Of7-S1-QxT"/>
+                        <outlet property="horario" destination="UPH-ZZ-HAY" id="2ME-KA-41b"/>
+                        <outlet property="image" destination="bVz-f5-Idt" id="0Qx-pr-Zgt"/>
+                        <outlet property="sinopsis" destination="r6B-Om-7ah" id="Zhz-VP-aDT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKI-5a-LjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DQw-ZX-XVw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2974" y="-216"/>
         </scene>

@@ -59,18 +59,18 @@ class PeliculasFavoritasTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: false)
         if let currentPeliculaManager = peliculasManager {
             let item = currentPeliculaManager.peliculas[indexPath.row]
-            self.performSegue(withIdentifier: "detailFilmSegue", sender: item)
+            self.performSegue(withIdentifier: "DetailFavFilm", sender: item)
             tableView.reloadData()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailFilmSegue" {
+        if segue.identifier == "DetailFavFilm" {
             if let cell = sender as? UITableViewCell,
                 let indexPath = tableView.indexPath(for: cell)
             {
                 if let destinationNavigationController = segue.destination as? UINavigationController,
-                    let targetController = destinationNavigationController.topViewController as? DetailFilmViewController {
+                    let targetController = destinationNavigationController.topViewController as? DetailFilmFavViewController {
                     if let currentPeliculaManager = peliculasManager {
                         targetController.pelicula = currentPeliculaManager.peliculas[indexPath.row]
                     }
