@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PLs-nv-rUZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PLs-nv-rUZ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -407,7 +407,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XgI-hi-wHT">
-                                <rect key="frame" x="16" y="121" width="382" height="543"/>
+                                <rect key="frame" x="16" y="80" width="382" height="640"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-f5-Idt">
                                         <rect key="frame" x="97" y="0.0" width="188" height="153"/>
@@ -445,7 +445,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4O-h9-ZJo">
-                                        <rect key="frame" x="163.66666666666666" y="513" width="55" height="30"/>
+                                        <rect key="frame" x="163.66666666666666" y="513" width="55" height="127"/>
                                         <state key="normal" title="Favorite"/>
                                         <connections>
                                             <action selector="onClickFavorite:" destination="SPf-ST-ukn" eventType="touchUpInside" id="tQr-qR-gwi"/>
@@ -460,8 +460,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="CLR-XY-IHq" firstAttribute="trailing" secondItem="XgI-hi-wHT" secondAttribute="trailing" constant="16" id="A8p-o8-UUc"/>
                             <constraint firstItem="XgI-hi-wHT" firstAttribute="leading" secondItem="CLR-XY-IHq" secondAttribute="leading" constant="16" id="PKW-mM-49z"/>
-                            <constraint firstItem="XgI-hi-wHT" firstAttribute="top" secondItem="CLR-XY-IHq" secondAttribute="top" constant="57" id="Wn0-bG-5zK"/>
+                            <constraint firstItem="XgI-hi-wHT" firstAttribute="top" secondItem="CLR-XY-IHq" secondAttribute="top" constant="16" id="Wn0-bG-5zK"/>
+                            <constraint firstItem="CLR-XY-IHq" firstAttribute="bottom" secondItem="XgI-hi-wHT" secondAttribute="bottom" constant="16" id="ni7-4E-J84"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CLR-XY-IHq"/>
                     </view>
